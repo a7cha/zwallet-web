@@ -80,7 +80,7 @@ class Register extends Component {
       .then(res => {
         console.log(res.data)
         localStorage.setItem('register_email',this.state.form.email)
-        if (res.data.success == true) {
+        if (res.data.success === true) {
            this.props.history.push('/auth/create-pin')
         }
       }).catch(err => {

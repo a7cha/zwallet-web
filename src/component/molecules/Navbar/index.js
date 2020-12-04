@@ -9,10 +9,9 @@ import NavigationMobile from '../NavigationMobile';
 
  const Navbar = ({hidden}) => {
 
-    const dispacth = useDispatch();
+    const dispatch = useDispatch();
     const stateGlobal = useSelector(state => state)
     const [history,setHistory] = useState([])
-    const [image, setImage] = useState('')
     console.log('dari state global: ',stateGlobal)
     useEffect(() => {
 
@@ -31,27 +30,21 @@ import NavigationMobile from '../NavigationMobile';
             }).catch(err => {
               console.log('data transfer axios error: ', err.message)
             });
-            dataApi(token);
 
 
+            axios.get(`${process.env.REACT_APP_API}/user`,headers)
+            .then(res =>{
+                // console.log('data dari navbar: ',res.data.data[0])
+                dispatch({type:'SET_DATA',value:res.data.data[0]});
 
-            console.log('dari histor lll',history)
-            
+            }).catch(err => {
+                console.error(err)
+            });            
+                  
+
 
     },[])
     
-    const dataApi = (token) => {
-        
-        const headers = { headers: {'Authorization': `${token}`}}  
-        axios.get(`${process.env.REACT_APP_API}/user`,headers)
-        .then(res =>{
-            // console.log('data dari navbar: ',res.data.data[0])
-            dispacth({type:'SET_DATA',value:res.data.data[0]});
-
-        }).catch(err => {
-            console.error(err)
-        });
-    }
   if(hidden){
     return(
         <>
@@ -69,16 +62,24 @@ import NavigationMobile from '../NavigationMobile';
             <div className="row justify-content-between">
               <div className="col-10">
                 <div className="row">
-                  <div className="col-3">
+                  <div className="col-4 ">
                     <Link to="/profile">
                       <img alt="" src={process.env.REACT_APP_URL+'images/'+stateGlobal.photo} />
                     </Link>
 
                   </div>
-                  <div className="col-9 " >
+                  <div className="col-8" >
                     <p className="profile-hello d-block d-md-none mb-0">&nbsp;Hello,</p>
                     <h4 className="profile-name mt-0">&nbsp;{stateGlobal.fullName}</h4>
-                    <p className="phone-number d-none d-md-block">&nbsp;{stateGlobal.phone && '+'+stateGlobal.phone }</p>
+                    { stateGlobal.phone === 0 ? 
+                      (
+                        <p className="phone-number d-none d-md-block">&nbsp;-</p>                      
+                      ) : (
+                        <p className="phone-number d-none d-md-block">&nbsp;{stateGlobal.phone && '+'+stateGlobal.phone }</p>                      
+                      )
+
+                    }
+
 
                   </div>
                 </div>

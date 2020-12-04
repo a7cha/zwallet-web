@@ -62,7 +62,7 @@ class NewPassword extends Component {
         axios.patch(`${process.env.REACT_APP_API}/auth/reset_password`,data)
         .then(res => {
           console.log(res.data)
-          if (res.data.success == true) {
+          if (res.data.success === true) {
              this.setState({
                 form : {
                     newPassword :'',

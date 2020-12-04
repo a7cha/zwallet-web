@@ -14,10 +14,6 @@ import axios from 'axios';
 function History(){
     
         const [historyTransfer, setHistoryTransfer] = useState([])
-        const [historyTransferIncomeWeek,setHistoryTransferIncomeWeek] = useState([])
-        const [historyTransferOutcomeWeek,setHistoryTransferOutcomeWeek] = useState([])
-        const [historyTransferIncomeMonth,setHistoryTransferIncomeMonth] = useState([])
-        const [historyTransferOutcomeMonth,setHistoryTransferOutcomeMonth] = useState([])
         const [sort, setSort] = useState(false)
         const [showOutcome, setShowOutcome] = useState(false)
         const [showIncome, setShowIncome] = useState(false)        
@@ -71,11 +67,7 @@ function History(){
             const headers = { headers: {'Authorization': `${token}`}}  
         axios.get(`${process.env.REACT_APP_API}/transaction/history`,headers)
         .then(res =>{
-        
-            setHistoryTransferIncomeWeek(res.data.data.inWeek)
-            setHistoryTransferOutcomeWeek(res.data.data.outWeek)
-            setHistoryTransferOutcomeMonth(res.data.data.outMonth)
-            setHistoryTransferIncomeMonth(res.data.data.inMonth)
+                        
             setHistoryTransfer(res.data.data.data)
 
         
@@ -144,14 +136,14 @@ function History(){
                                                         <div class="d-flex flex-column bd-highlight mb-5">
                                                             <div class="pl-2 bd-highlight mt-3">
                                                                 <div class="d-flex justify-content-start">
-                                                                    <img src={history.img} alt="" />
+                                                                    <img src={history.img === '-' ? icUser : process.env.REACT_APP_URL+'images/'+history.img} alt="" class="history-image" />
                                                                     <div class="ml-3 mt-2">
                                                                     <div class="name-history">{history.receiveBy}</div>
                                                                     <div class="status-history">Transfer</div>
                                                             
                                                                     </div>
                                                                     
-                                                                    {stateGlobal.id == history.sendBy ? 
+                                                                    {stateGlobal.id === history.sendBy ? 
                                                                     ( 
                                                                         <div class="value-history-add  ml-auto mr-3 mt-3">
                                                                         +Rp {history.amountTransfer}

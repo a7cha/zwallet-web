@@ -216,7 +216,7 @@ class Transfer extends Component {
                                                     <div className="card-profile d-none d-sm-block" >
                                                         <div className="row justify-content-lg-around">
                                                             <div className="col-4 col-sm-3 col-lg-2 m-0 ">
-                                                                { profile.img == '-' ? 
+                                                                { profile.img === '-' ? 
                                                                     (
                                                                         <img alt="" src={icUser} width="70" height="70"  />                                                                        
                                                                     ) : 
@@ -251,7 +251,7 @@ class Transfer extends Component {
 
                                         {  
                                             
-                                            this.state.profiles.length == 0 && 
+                                            this.state.profiles.length === 0 && 
                                             <div style={{textAlign:'center',width:'100%'}}>
                                                 <span className="py-2 px-3 mt-5" style={{backgroundColor:'#fff',borderRadius:10,color:'#333',cursor:'pointer'}}> <h1>Data Not Found</h1> </span>
                                             </div>

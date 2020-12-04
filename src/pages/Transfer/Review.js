@@ -134,7 +134,7 @@ class Review extends Component {
                                                 <div class="d-flex flex-column bd-highlight mb-2 pt-3 pt-sm-3">
                                                     <div class="pl-4 bd-highlight ">
                                                         <div class="d-flex justify-content-start">
-                                                            { this.state.dataTransfer.photo == '-' ? 
+                                                            { this.state.dataTransfer.photo === '-' ? 
                                                                 (
                                                                     <img alt="" src={icUser} width="70" className="amount-image" />
                                                                 ) : (
@@ -295,8 +295,8 @@ class Review extends Component {
 
         </div>
         <div className="modal-footer border-0 p-0">
-          <button type="button" className="btn btn-primary d-none d-sm-block" onClick={() => this.onContinue()}   data-dismiss={this.state.closeModal ? 'modal' : 'bukan'} aria-label="Close">Continue</button>
-          <button type="button" className="btn btn-primary d-sm-none" onClick={() => this.onContinue()}   data-dismiss={this.state.closeModal ? 'modal' : 'bukan'} aria-label="Close">Transfer Now</button>
+          <button type="button" className="btn btn-primary d-none d-sm-block" onClick={() => this.onContinue()}   data-dismiss='modal' aria-label="Close">Continue</button>
+          <button type="button" className="btn btn-primary d-sm-none" onClick={() => this.onContinue()}   data-dismiss='modal' aria-label="Close">Transfer Now</button>
         </div>
       </div>
     </div>

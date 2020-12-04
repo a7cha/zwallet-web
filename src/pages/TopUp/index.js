@@ -37,7 +37,7 @@ class TopUp extends Component {
     onTopUp()
     {
 
-        if (this.state.amount == 0) {
+        if (this.state.amount === 0) {
             toast.error("Amout is required!",{position:toast.POSITION.TOP_CENTER})
             return false
         }

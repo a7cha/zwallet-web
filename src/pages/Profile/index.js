@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import './profile.css';
 import axios from 'axios';
-import qs from 'qs';
 
 
 class Profile extends Component {
@@ -62,7 +61,7 @@ class Profile extends Component {
       'fullName', this.state.fullName
     )
     //  console.log('hasil dari form data: ',formData.get('images'))
-      if (formData.get('images') == 'null') {
+      if (formData.get('images') === 'null') {
 
         const token = localStorage.getItem("jwt");
         const headers = { headers: {'Authorization': `${token}`}}  
@@ -159,7 +158,7 @@ class Profile extends Component {
                   <div className="col-12 text-center ">
 
 
-                    { this.props.userData.photo == '-' ? 
+                    { this.props.userData.photo === '-' ? 
                         (
                             <img alt="" src={icUser} className="img-fluid" />
                         ) : (
@@ -241,7 +240,7 @@ class Profile extends Component {
                       <div className="mt-4 text-center position-relative">
                         <div className="hover-image" style={this.state.avatarOver ? { display: 'inline' } : { display: 'none' }}></div>
                         <input type="file" className="image-upload" onChange={this.fileChangedHandler} onMouseOver={() => this.overImage()} onMouseLeave={() => this.moveImage()} />
-                        { this.props.userData.photo == '-'  ?
+                        { this.props.userData.photo === '-'  ?
                           (
                             <img className="avatar" src={icUser} alt="" />
                           ):(

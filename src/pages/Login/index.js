@@ -30,7 +30,7 @@ class Login extends Component {
       newForm: newForm
     },
       () => {
-        console.log(newForm);
+        
       }
     )
   }
@@ -40,13 +40,13 @@ class Login extends Component {
     let data = qs.stringify(this.state.form);
     axios.post(`${process.env.REACT_APP_API}/auth/login`, data)
       .then(res => {
-          console.log('ini data dari login: ',res.data)
+          
           // localStorage.setItem("token", JSON.stringify(res.data.data));
 
           localStorage.setItem("login", this.state.form.email);
           login(res.data.token.token);
 
-          if (res.data.token.role == '100') {
+          if (res.data.token.role === '100') {
             this.props.history.push('/dashboard')
           }else{
             this.props.history.push('/admin')

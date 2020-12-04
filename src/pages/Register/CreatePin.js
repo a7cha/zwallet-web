@@ -65,7 +65,7 @@ class CreatePin extends Component {
     axios.patch(`${process.env.REACT_APP_API}/auth/create_pin`,data)
       .then(res => {
         console.log(res.data)
-        if (res.data.success == true) {
+        if (res.data.success === true) {
           localStorage.clear();
           this.props.history.push('/auth/success');
         }

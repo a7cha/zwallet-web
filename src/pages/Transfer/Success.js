@@ -27,9 +27,9 @@ class Success extends Component {
                             <div className="col-3 bg-white shadow-lg">
                                 <div className="sidebar sidebar_menu" >
                                    <Link to="/dashboard">
-                                    <a href="/dashboard" className="ml-md-4 d-block dashboard-tr text-center text-lg-left">
-                                        <img alt="" src={icGrid} /> &nbsp; <span className="d-none d-md-inline">Dashboard</span>
-                                    </a>
+                                        <a href="/dashboard" className="ml-md-4 d-block dashboard-tr text-center text-lg-left">
+                                            <img alt="" src={icGrid} /> &nbsp; <span className="d-none d-md-inline">Dashboard</span>
+                                        </a>
                                     </Link>
                                     <Link to="/transfer">
                                     <a href="receiver.html" className="ml-md-4 d-block transfer text-center text-lg-left">
@@ -88,12 +88,23 @@ class Success extends Component {
                                     <div className="row">
                                         <div className="col-12">
                                             <div className="d-sm-none">
-                                              <CardPerson name="dawda" photo={this.state.dataTransfer.photo} phone={this.state.dataTransfer.phone}/>
+                                              <CardPerson 
+                                                name={this.state.dataTransfer.name}
+                                                photo={this.state.dataTransfer.photo === '-' ?  icUser : process.env.REACT_APP_URL+'images/'+this.state.dataTransfer.photo} 
+                                                phone={this.state.dataTransfer.phone}
+                                            />
                                             </div>
+                                            
                                             <div className="card-profile d-none d-sm-block ">
                                                 <div className="row justify-content-lg-around">
                                                     <div className="col-4 col-sm-3 col-lg-2 m-0 ">
-                                                        <img alt="" src={this.state.dataTransfer.photo} width="70" />
+                                                            { this.state.dataTransfer.photo === '-' ? 
+                                                                (
+                                                                    <img alt="" src={icUser} width="70" className="amount-image" />
+                                                                ) : (
+                                                                    <img alt="" src={process.env.REACT_APP_URL+'images/'+this.state.dataTransfer.photo} width="70" className='amount-image'/>
+                                                                )
+                                                            } 
                                                     </div>
                                                     <div className="col-9 col-sm-9 col-lg-10 receiver">
                                                         <h4 className="mt-1 mt-sm-0">{this.state.dataTransfer.name}</h4>
@@ -103,12 +114,18 @@ class Success extends Component {
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="text-center text-sm-right mt-md-5">
-                                        <button className="btn btn-share d-none d-sm-block"><img alt="" src={icShare} /></button> &nbsp;&nbsp;
-                                        <button className="btn btn-download d-none d-sm-block"><img alt="" src={icDownload} />&nbsp; <span>Download PDF</span></button> &nbsp;&nbsp;
-                                        <Link to="/dashboard">
-                                             <button className="btn back">Back to Home</button>
-                                        </Link>
+                                    <div className="mt-md-5 d-flex flex-xl-row  row flex-lg-row flex-sm-column flex-column justify-content-md-between mx-lg-2">
+                                        <div className="d-flex  flex-row justify-content-lg-between">
+                                            <button className="btn btn-share   mb-xl-0 mb-3"><img alt="" src={icShare} /></button> &nbsp;&nbsp;
+                                            <button className="btn btn-download  "><img alt="" src={icDownload} />&nbsp; <span>Download PDF</span></button> &nbsp;&nbsp;
+                                        </div>
+
+                                        <div>
+                                            <Link to="/dashboard">
+                                                 <button className="btn back w-100">Back to Home</button>
+                                            </Link>
+                                        </div>
+
                                     </div>
 
                                 </div>

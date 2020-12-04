@@ -143,7 +143,7 @@ class Amount extends Component {
                                                     <div class="d-flex flex-column bd-highlight mb-2 pt-3 pt-sm-3">
                                                         <div class="pl-4 bd-highlight ">
                                                             <div class="d-flex justify-content-start" >
-                                                                { this.state.dataTransfer.img == '-' ?
+                                                                { this.state.dataTransfer.img === '-' ?
                                                                     (
                                                                         <img alt="" src={icUser} width="70" className="amount-image" />
                                                                     ) :

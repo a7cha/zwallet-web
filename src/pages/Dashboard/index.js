@@ -20,13 +20,13 @@ class Dashboard extends Component {
             const headers = { headers: {'Authorization': `${token}`}}  
             axios.get(`${process.env.REACT_APP_API}/user/home`,headers)
             .then(res =>{
-              console.log('data transfer axios dashboard: ',res.data.data.data)
+              
               if (res.data.data.data) {
                 this.setState({historyTransfer:res.data.data.data}); 
               }
               
             }).catch(err => {
-              console.log('data transfer axios error: ', err.message)
+              
             });
     }
 
@@ -78,7 +78,14 @@ class Dashboard extends Component {
                                         <div className="col-md-8">
                                             <p className="balance">Balance</p>
                                             <h4 className="credit">Rp{this.props.userData.balance}</h4>
-                                            <p className="number">{this.props.userData.phone && '+'+this.props.userData.phone}</p>
+                                            { this.props.userData.phone === 0 ? 
+                                                (
+                                                    <p className="number">-</p>
+                                                ) : (
+                                                    <p className="number">{this.props.userData.phone && '+'+this.props.userData.phone}</p>
+                                                )
+
+                                            }                                            
                                         </div>
                                         </Link>
                                         <div className="col-md-4 align-self-center d-none d-sm-block">
@@ -159,11 +166,15 @@ class Dashboard extends Component {
                                             </div>
                                         </div>
 
+                                        {
+                                            this.state.historyTransfer.slice(0,4).map(history => {
+                                                return(
+                                                    <CardPerson name={history.sender} amount={history.amountTransfer} photo={history.img === '-' ? icUser : process.env.REACT_APP_URL+'images/'+history.img} status={history.status} id={history.sendBy} />
 
-                                        
+                                                )
+                                            })
 
- 
-
+                                        }                                        
 
 
                                     <div className="col-md-5 transaction-history justify-content-lg-end mt-4 mt-md-0 d-none d-md-block">
@@ -183,7 +194,7 @@ class Dashboard extends Component {
                                                     <div className=" col-sm-9 col-md-7">
                                                         <div className="row">
                                                             <div className="col-4">
-                                                                { history.img == '-' ? 
+                                                                { history.img === '-' ? 
                                                                     (
                                                                         <img alt="" src={icUser} className="img-fluid" />
                                                                     ) : (
@@ -198,8 +209,8 @@ class Dashboard extends Component {
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div className={`col-sm-3 col-md-5 pt-3 ${this.props.userData.id == history.sendBy ? 'money-plus' : 'money-minus'} `}>
-                                                     <p>{this.props.userData.id == history.sendBy ? '+' : '-'}Rp{history.amountTransfer}</p>
+                                                    <div className={`col-sm-3 col-md-5 pt-3 ${this.props.userData.id === history.sendBy ? 'money-plus' : 'money-minus'} `}>
+                                                     <p>{this.props.userData.id === history.sendBy ? '+' : '-'}Rp{history.amountTransfer}</p>
                                                     </div>
                                                 </div>
                                                 )
