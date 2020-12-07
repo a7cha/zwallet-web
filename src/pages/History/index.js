@@ -1,7 +1,7 @@
 import React,{useEffect, useState} from 'react';
 import {useSelector} from 'react-redux';
 import { icArrowUp , icGridActive, icLogOut,icPlus,icUser,icArrowExpense,icArrowIncome} from '../../assets';
-import { Navbar,Footer, CardPerson, NavigationMobile} from '../../component/molecules';
+import { Navbar,Footer, NavigationMobile} from '../../component/molecules';
 import './history.css'
 import {Link} from 'react-router-dom';
 import { format } from 'date-fns'
@@ -14,9 +14,6 @@ import axios from 'axios';
 function History(){
     
         const [historyTransfer, setHistoryTransfer] = useState([])
-        const [sort, setSort] = useState(false)
-        const [showOutcome, setShowOutcome] = useState(false)
-        const [showIncome, setShowIncome] = useState(false)        
         const [modalShow , setModalShow] = useState(false)
         const [pagination, setPagination] = useState(false)
         const [paginationLimit, setPaginationLimit] = useState(4)
@@ -25,17 +22,7 @@ function History(){
         const [focus, setFocus] = useState(START_DATE)
         const stateGlobal = useSelector(state => state)
 
-        const sortOutcome = () => {
-            setShowOutcome(true)
-            setSort(true)
-        }
 
-
-
-        const sortIncome = () => {
-            setShowIncome(true)
-            setSort(true)
-        }
         
         const openCalendar = () => {
             setModalShow(true)
@@ -69,9 +56,8 @@ function History(){
         .then(res =>{
                         
             setHistoryTransfer(res.data.data.data)
-
         
-          console.log('ini data did mount: ', historyTransfer)
+          // console.log('ini data did mount: ', historyTransfer)
         }).catch(err => {
           console.log('data transfer axios error: ', err.message)
         });
@@ -187,11 +173,11 @@ function History(){
                         </div>
                                 <div class="d-flex justify-content-between mb-5 mx-4 d-md-none  d-block ">
                                 <div>
-                                    <button class="button-sort" onclick={() => sortOutcome()}>
+                                    <button class="button-sort" >
                                         <img src={icArrowExpense} alt=''/>
                                     </button>
             
-                                    <button class="button-sort mx-2" onclick={() => sortIncome()}> 
+                                    <button class="button-sort mx-2" > 
                                         <img src={icArrowIncome} alt='' />
                                     </button>
                                 </div>

@@ -19,6 +19,7 @@ import NavigationMobile from '../NavigationMobile';
 
             var token = localStorage.getItem("jwt");
             const headers = { headers: {'Authorization': `${token}`}}  
+
             axios.get(`${process.env.REACT_APP_API}/user/home`,headers)
             .then(res =>{
                 console.log('data notification: ',res.data.data.data)
@@ -34,16 +35,14 @@ import NavigationMobile from '../NavigationMobile';
 
             axios.get(`${process.env.REACT_APP_API}/user`,headers)
             .then(res =>{
-                // console.log('data dari navbar: ',res.data.data[0])
                 dispatch({type:'SET_DATA',value:res.data.data[0]});
-
             }).catch(err => {
                 console.error(err)
             });            
                   
 
 
-    },[])
+    },)
     
   if(hidden){
     return(
