@@ -18,7 +18,7 @@ Hello my name is Arungi Cahaya, im from Arkademy Bootcamp, im Fullstack Develope
 
 Purpose of this project solve banking problems that oftenly wasting much of your times.
 
-This project built with HTML, CSS, Javacript, Chart.js And Boostrap.
+This project built with Reactjs.
 
 
 
