@@ -146,9 +146,9 @@ class Dashboard extends Component {
                                                         
                                                         
                                                             <div className="earning" ><span>+Rp65.000</span></div>
-                                                            <div className="notif d-none d-sm-block"></div>
                                                             
-                                                            <canvas height="268px" id="canvas" className="w-100"></canvas>
+                                                            
+                                                            <canvas height="268px" width="500px" id="canvas" className="w-100"></canvas>
                                                         
                                                         </div>
                                                     </div>

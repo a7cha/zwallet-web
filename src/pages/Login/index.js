@@ -49,7 +49,7 @@ class Login extends Component {
           if (res.data.token.role === '100') {
             this.props.history.push('/dashboard')
           }else{
-            this.props.history.push('/admin')
+            this.props.history.push('/dashboard')
           }
 
 
