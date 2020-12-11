@@ -3,7 +3,6 @@ import './card.css'
 import {useSelector} from 'react-redux';
  const CardPerson = ({name,photo,amount,phone,status,id}) => {
     const stateGlobal = useSelector(state => state)
-    console.log('dari card: ',stateGlobal.id)
     return (
         <>
             <div className="card-person shadow-sm " >

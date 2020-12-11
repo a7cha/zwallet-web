@@ -6,7 +6,7 @@ import { isLogin } from "../utils";
 const PublicRoute = ({ component: Component, restricted, ...rest }) => {
   //restricted (true) = public route itu bisa diakses ga sih ketika user tidak ada token/belum login
   //restricted (false) = public
-  // console.log(...props)
+  // //console.log(...props)
 
   return (
     <Route {...rest} render={(props) => isLogin() && restricted ? ( <Redirect to="/dashboard" />) : ( <Component {...props} />)}/>

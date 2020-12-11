@@ -39,7 +39,7 @@ class CreatePin extends Component {
         newForm: newForm
     },
     ()=> {
-      console.log(newForm);
+      //console.log(newForm);
     }
     )  
   }
@@ -64,7 +64,7 @@ class CreatePin extends Component {
     data = qs.stringify(data);
     axios.patch(`${process.env.REACT_APP_API}/auth/create_pin`,data)
       .then(res => {
-        console.log(res.data)
+        //console.log(res.data)
         if (res.data.success === true) {
           localStorage.clear();
           this.props.history.push('/auth/success');

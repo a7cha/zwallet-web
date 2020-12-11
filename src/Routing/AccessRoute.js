@@ -17,7 +17,7 @@ const PrivateRoute = ({ component: Component, ...rest })=> {
 const PublicRoute = ({ component: Component,admin, restricted, ...rest }) => {
     //restricted (true) = public route itu bisa diakses ga sih ketika user tidak ada token/belum login
     //restricted (false) = public
-    // console.log(admin)
+    // //console.log(admin)
   
     return (
       <Route {...rest} render={(props) => isLogin(admin) && restricted ? ( <Redirect to="/dashboard" />) : ( <Component {...props} />)}/>

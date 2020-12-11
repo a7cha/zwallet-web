@@ -40,7 +40,7 @@ class ForgotPassword extends Component {
       newForm: newForm
     },
       () => {
-        console.log(newForm);
+        //console.log(newForm);
       }
     )
   }

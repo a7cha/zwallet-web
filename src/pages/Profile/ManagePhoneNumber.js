@@ -45,7 +45,7 @@ class ManagePhoneNumber extends Component {
 
     render() { 
 
-        // console.log('data number:',this.props.userData.phone)
+        // //console.log('data number:',this.props.userData.phone)
         if (this.props.userData.phone === '0') {
             this.props.history.push('/profile/add-phone-number')
          } 

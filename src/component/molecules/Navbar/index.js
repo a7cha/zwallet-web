@@ -12,7 +12,6 @@ import NavigationMobile from '../NavigationMobile';
     const dispatch = useDispatch();
     const stateGlobal = useSelector(state => state)
     const [history,setHistory] = useState([])
-    console.log('dari state global: ',stateGlobal)
     useEffect(() => {
 
 
@@ -22,14 +21,14 @@ import NavigationMobile from '../NavigationMobile';
 
             axios.get(`${process.env.REACT_APP_API}/user/home`,headers)
             .then(res =>{
-                console.log('data notification: ',res.data.data.data)
+                
                 if (res.data.data.data) {
                   setHistory(res.data.data.data)
                 }
                 
             
             }).catch(err => {
-              console.log('data transfer axios error: ', err.message)
+              //console.log( err.message)
             });
 
 
@@ -120,7 +119,7 @@ import NavigationMobile from '../NavigationMobile';
             
             {
               // history
-                // console.log('histor: ',history)
+                // //console.log('histor: ',history)
                 history.map(his => {
                 return(
                   <div className="cardss mb-3" key={his.id}>

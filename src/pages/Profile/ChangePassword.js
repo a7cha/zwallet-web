@@ -35,7 +35,7 @@ class ChangePassword extends Component {
             newForm: newForm
         },
         ()=> {
-          console.log(newForm);
+          //console.log(newForm);
         }
         )  
     }
@@ -79,7 +79,7 @@ class ChangePassword extends Component {
             const headers = { headers: {'Authorization': `${token}`}}   
             axios.patch(`${process.env.REACT_APP_API}/user/change_password`,data,headers)
             .then(res => {
-              console.log(res.data)
+              //console.log(res.data)
               this.setState({
                 form : {
                     currentPassword :'',

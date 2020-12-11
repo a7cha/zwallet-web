@@ -38,7 +38,7 @@ class ChangePin extends Component {
             newForm: newForm
         },
         ()=> {
-          console.log(newForm);
+          //console.log(newForm);
         }
         )  
     }
@@ -77,12 +77,12 @@ class ChangePin extends Component {
                     newPin:data.pin
                 }
                 let pin = qs.stringify(save);
-                console.log('data parse',pin)
+                //console.log('data parse',pin)
                 const token = localStorage.getItem("jwt");
                 const headers = { headers: {'Authorization': `${token}`}}  
                 axios.patch(`${process.env.REACT_APP_API}/user/change_pin`,pin,headers)
                 .then(res => {
-                console.log(res.data)
+                //console.log(res.data)
                 this.setState({
                     form : {
                         pin1 : '',

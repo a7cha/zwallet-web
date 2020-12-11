@@ -30,10 +30,10 @@ class Routing extends Component{
                         <PrivateRoute  path="/profile/add-phone-number" component={AddPhoneNumber}  />
                         <PrivateRoute  path="/profile/manage-phone-number" component={ManagePhoneNumber}  />
                         <PrivateRoute  path="/profile/manage-phone-number" component={ManagePhoneNumber}  />
-                        <PrivateRoute  path="/admin" component={AdminDashboard} admin="admin" exact/>
-                        <PrivateRoute  path="/admin/transfer" component={AdminTransfer} admin="admin" />
-                        <PrivateRoute  path="/admin/user" component={AdminUser} admin="admin" />
-                        <PrivateRoute  path="/admin/top-up" component={AdminTopup} />
+                        {/* <PrivateRoute  path="/admin" component={AdminDashboard} admin="admin" exact/> */}
+                        {/* <PrivateRoute  path="/admin/transfer" component={AdminTransfer} admin="admin" /> */}
+                        {/* <PrivateRoute  path="/admin/user" component={AdminUser} admin="admin" /> */}
+                        {/* <PrivateRoute  path="/admin/top-up" component={AdminTopup} /> */}
                         <PublicRoute   component={Login} restricted={true} path='/auth'exact  />
                         <PublicRoute   component={ForgotPassword} restricted={true} path='/auth/forgot-password'  />
                         <PublicRoute   component={NewPassword} restricted={true} path='/auth/new-password'  />

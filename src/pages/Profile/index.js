@@ -19,7 +19,7 @@ class Profile extends Component {
     this.setState({
       fullName: this.props.userData.fullName
     })
-    // console.log('hasil dari name:',this.props.userData.fullName)  
+    // //console.log('hasil dari name:',this.props.userData.fullName)  
   }
 
   overImage() {
@@ -47,7 +47,7 @@ class Profile extends Component {
   }
 
   // uploadHandler = () => {
-  // console.log(this.state.selectedFile)
+  // //console.log(this.state.selectedFile)
   // }
 
   uploadHandler = () => {
@@ -60,7 +60,7 @@ class Profile extends Component {
     formData.append(
       'fullName', this.state.fullName
     )
-    //  console.log('hasil dari form data: ',formData.get('images'))
+    //  //console.log('hasil dari form data: ',formData.get('images'))
       if (formData.get('images') === 'null') {
 
         const token = localStorage.getItem("jwt");
@@ -70,7 +70,7 @@ class Profile extends Component {
               this.dataApi()
           })
           .catch(err => {
-            console.log(err.message)
+            //console.log(err.message)
           })
       }else{
             const token = localStorage.getItem("jwt");
@@ -78,13 +78,13 @@ class Profile extends Component {
           
             axios.patch(`${process.env.REACT_APP_API}/user/patch_user`,formData,headers)
               .then(res => {
-                console.log('hasil dari pat: ',res.data)
+                //console.log('hasil dari pat: ',res.data)
 
                   this.dataApi()
 
               })
               .catch(err => {
-                console.log(err.message)
+                //console.log(err.message)
               })
       }
 
@@ -97,7 +97,7 @@ class Profile extends Component {
     const headers = { headers: {'Authorization': `${token}`}}  
     axios.get(`${process.env.REACT_APP_API}/user`,headers)
       .then(res => {
-        console.log('data dari api user: ',res.data.data[0])
+        //console.log('data dari api user: ',res.data.data[0])
         this.props.setData(res.data.data[0]);
 
       }).catch(err => {
@@ -108,7 +108,7 @@ class Profile extends Component {
 
 
   render() {
-    // console.log('hasil dari re: ',this.props)
+    // //console.log('hasil dari re: ',this.props)
     return (
       <>
         <div className="d-none d-sm-block">

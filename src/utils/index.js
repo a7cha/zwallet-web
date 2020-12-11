@@ -20,14 +20,14 @@ export const isLogin =  (admin)=> {
     
     // dataApi(admin)
     // if ( dataApi(admin) === true) {
-    //     console.log('mantap')
+    //     //console.log('mantap')
     //     return true
     // }else{
-    //     console.log('sial')
+    //     //console.log('sial')
     //     return true
     // }
     // if (token) {
-    //     console.log('berhasil: ',emailToken)
+    //     //console.log('berhasil: ',emailToken)
     //     return true
     // }
     
@@ -46,17 +46,17 @@ export const isLogin =  (admin)=> {
 //          let data = qs.stringify({token:token});
 //         await  axios.post(`${process.env.REACT_APP_API}/profile/token`,data,headers)
 //          .then(res =>{
-//              console.log('hasil dari ambil',res.data.data[0].email)
+//              //console.log('hasil dari ambil',res.data.data[0].email)
 //              const role_id = res.data.data[0].role_id;
 //              const email = res.data.data[0].email;
 //             //  if(admin === 'admin')
 //             //  {
-//             //      console.log('ini admin')
+//             //      //console.log('ini admin')
 //             //      if (role_id == 1 ) {
 //             //          return true;
 //             //      }
 //             //  }else{
-//             //      console.log('ini bukan admin')
+//             //      //console.log('ini bukan admin')
  
 //             //          return true;
                  

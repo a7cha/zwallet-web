@@ -19,11 +19,11 @@ class TopUp extends Component {
         const headers = { headers: {'Authorization': `Bearer ${token}`}} 
         axios.get(`${process.env.REACT_APP_API}/topup/`,headers)
         .then(res =>{
-          console.log(res.data.data)
+          //console.log(res.data.data)
           this.setState({data:res.data.data});
         
         }).catch(err => {
-          console.log(err)
+          //console.log(err)
         });
 
     }
@@ -51,17 +51,17 @@ class TopUp extends Component {
           this.setState({amount:''})
           window.snap.pay(res.data.token, {
               onSuccess: function(result) {
-                console.log("SUCCESS", result);
+                //console.log("SUCCESS", result);
                 toast.success("Top-Up Successfully!",{position:toast.POSITION.TOP_CENTER})
                 this.setState({amount:''})
               },
               onPending: function(result) {
-                console.log("Payment pending", result);
+                //console.log("Payment pending", result);
                 toast.success("Top-Up Successfully!",{position:toast.POSITION.TOP_CENTER})
                 this.setState({amount:''})
               },
               onError: function() {
-                console.log("Payment error");
+                //console.log("Payment error");
                 this.setState({amount:''})
               }
           });

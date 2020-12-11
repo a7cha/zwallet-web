@@ -40,7 +40,7 @@ function History(){
         
             setPagination(true)
             setPaginationLimit(data)
-            console.log(paginationLimit)
+            //console.log(paginationLimit)
             
         }
 
@@ -57,9 +57,9 @@ function History(){
                         
             setHistoryTransfer(res.data.data.data)
         
-          // console.log('ini data did mount: ', historyTransfer)
+          // //console.log('ini data did mount: ', historyTransfer)
         }).catch(err => {
-          console.log('data transfer axios error: ', err.message)
+          //console.log('data transfer axios error: ', err.message)
         });
         }, [])
 

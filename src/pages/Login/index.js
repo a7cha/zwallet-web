@@ -46,7 +46,7 @@ class Login extends Component {
           localStorage.setItem("login", this.state.form.email);
           login(res.data.token.token);
 
-          if (res.data.token.role === '100') {
+          if (res.data.token.role === 100) {
             this.props.history.push('/dashboard')
           }else{
             this.props.history.push('/admin')

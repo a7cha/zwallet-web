@@ -19,11 +19,11 @@ class Detail extends Component {
             const headers = { headers: {'Authorization': token}}  
             axios.get(`${process.env.REACT_APP_API}/user/home`,headers)
             .then(res =>{
-              console.log('data transfer axios: ',res.data.data.data)
+              //console.log('data transfer axios: ',res.data.data.data)
               this.setState({historyTransfer:res.data.data.data});
             
             }).catch(err => {
-              console.log('data transfer axios error: ', err.message)
+              //console.log('data transfer axios error: ', err.message)
             });
     }
 

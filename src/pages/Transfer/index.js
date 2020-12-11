@@ -31,40 +31,40 @@ class Transfer extends Component {
         const headers = { headers: {'Authorization': `${token}`}}  
         axios.get(`${process.env.REACT_APP_API}/user/all?sortBy=fullName&sortType=ASC&limit=${this.state.limit}&page=0`,headers)
         .then(res =>{
-          console.log('transfer/',res.data.data)
+          //console.log('transfer/',res.data.data)
         const result = res.data.data.filter(man => {
              return man.email !== email
         })
           this.setState({profiles:result});
         
         }).catch(err => {
-          console.log(err)
+          //console.log(err)
         });                                                                                                 
 
         axios.get(`${process.env.REACT_APP_API}/user/all?sortBy=fullName&sortType=DESC&limit=3&page=0`,headers)
         .then(res =>{
-          console.log('transfer quick access',res.data.data)
+          //console.log('transfer quick access',res.data.data)
         const result = res.data.data.filter(man => {
              return man.email !== email
         })
           this.setState({quickAccess:result});
         
         }).catch(err => {
-          console.log(err)
+          //console.log(err)
         });
 
         axios.get(`${process.env.REACT_APP_API}/user/all?sortBy=fullName&sortType=DESC&limit=999&page=0`,headers)
         .then(res =>{
-          console.log('transfer quick access',res.data.data)
+          //console.log('transfer quick access',res.data.data)
         const max = res.data.data.filter(man => {
              return man.email !== email
         })
 
-        //  console.log('hasil dari max: ',max.length)
+        //  //console.log('hasil dari max: ',max.length)
           this.setState({max:max.length});
         
         }).catch(err => {
-          console.log(err)
+          //console.log(err)
         });
     }
 
@@ -77,7 +77,7 @@ class Transfer extends Component {
     {
 
         const query = event.currentTarget.value;
-        console.log('hasil dari query : ',query)
+        //console.log('hasil dari query : ',query)
         if (!query) {
             this.getData();
         }
@@ -92,7 +92,7 @@ class Transfer extends Component {
              this.setState({profiles:result,max:result.length});
         
         }).catch(err => {
-          console.log(err)
+          //console.log(err)
         });
     }
 
@@ -105,14 +105,14 @@ class Transfer extends Component {
         const headers = { headers: {'Authorization': `${token}`}}  
         axios.get(`${process.env.REACT_APP_API}/user/all?sortBy=fullName&sortType=ASC&limit=${this.state.limit + 4}&page=0`,headers)
         .then(res =>{
-          console.log('transfer/',res.data.data)
+          //console.log('transfer/',res.data.data)
         const result = res.data.data.filter(man => {
              return man.email !== email
         })
           this.setState({profiles:result,limit:this.state.limit + 4});
         
         }).catch(err => {
-          console.log(err)
+          //console.log(err)
         });
 
     }
@@ -122,8 +122,8 @@ class Transfer extends Component {
 
     render() { 
 
-        console.log('jumlah limit :',this.state.limit)
-        console.log('jumlah max :',this.state.max)
+        //console.log('jumlah limit :',this.state.limit)
+        //console.log('jumlah max :',this.state.max)
 
         return ( 
             <>

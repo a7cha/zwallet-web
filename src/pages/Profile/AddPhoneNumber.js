@@ -21,7 +21,7 @@ class AddPhoneNumber extends Component {
 
     componentDidMount()
     {
-        // console.log('data number:',this.props.userData.phone)
+        // //console.log('data number:',this.props.userData.phone)
 
         // if (this.props.userData.phone !== 0) {
         //     this.props.history.push('/profile/manage-phone-number')
@@ -36,7 +36,7 @@ class AddPhoneNumber extends Component {
             newForm: newForm
         },
         ()=> {
-          console.log(newForm);
+          //console.log(newForm);
         }
         )  
     }
