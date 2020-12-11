@@ -9,6 +9,7 @@ import AddPhoneNumber from '../pages/Profile/AddPhoneNumber';
 import { PrivateRoute, PublicRoute } from "./AccessRoute";
 class Routing extends Component{
 
+
     render(){
         return(
             <BrowserRouter>
