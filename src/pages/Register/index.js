@@ -31,7 +31,7 @@ class Register extends Component {
       newForm: newForm
     },
       () => {
-        console.log(newForm);
+        //console.log(newForm);
       }
     )
   }
@@ -78,7 +78,7 @@ class Register extends Component {
 
     axios.post(`${process.env.REACT_APP_API}/auth/register`, data)
       .then(res => {
-        console.log(res.data)
+        //console.log(res.data)
         localStorage.setItem('register_email',this.state.form.email)
         if (res.data.success === true) {
            this.props.history.push('/auth/create-pin')

@@ -28,10 +28,10 @@ class Review extends Component {
         // if (login === 'true') {
               let dataTransfer = JSON.parse(localStorage.getItem("dataTransfer"));
               this.setState({dataTransfer:dataTransfer})    
-              console.log('datatrans',dataTransfer)
+              //console.log('datatrans',dataTransfer)
             // let dataLogin = JSON.parse(localStorage.getItem("dataLogin")).data[0];
             // this.setState({dataUSer:dataLogin}) 
-            // console.log(dataLogin); 
+            // //console.log(dataLogin); 
 
 
         // }
@@ -46,7 +46,7 @@ class Review extends Component {
             newForm: newForm
         },
         ()=> {
-          console.log(newForm);
+          //console.log(newForm);
         }
         )  
     }
@@ -63,19 +63,19 @@ class Review extends Component {
             device_token_receiver : '-',            
             pin: parseInt(this.state.form.pin1 + this.state.form.pin2 + this.state.form.pin3 + this.state.form.pin4 + this.state.form.pin5 + this.state.form.pin6),
         }
-        // console.log('data dari form: ',form)
+        // //console.log('data dari form: ',form)
         let data = qs.stringify(form);
-        // console.log('data dari qs',form)
+        // //console.log('data dari qs',form)
         const token = localStorage.getItem("jwt");
         const headers = { headers: {'Authorization': `${token}`}}  
         axios.post(`${process.env.REACT_APP_API}/transaction/`,data,headers)
              .then(res => {
                 this.props.history.push('/transfer/success')
-                console.log('berhasil')
+                //console.log('berhasil')
                 this.setState({closeModal : true})
              })
              .catch(err => {
-                console.log(err)
+                //console.log(err)
              })
 
     }

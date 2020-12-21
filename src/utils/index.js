@@ -16,6 +16,28 @@ export const logout = (history) => {
 
 
 
+//     if (localStorage.getItem(TOKEN_KEY)) {
+//             return true
+//     }
+//     return false
+    
+    // dataApi(admin)
+    // if ( dataApi(admin) === true) {
+    //     //console.log('mantap')
+    //     return true
+    // }else{
+    //     //console.log('sial')
+    //     return true
+    // }
+    // if (token) {
+    //     //console.log('berhasil: ',emailToken)
+    //     return true
+    // }
+    
+    // return false
+// }
+
+
 
  const dataApi = async (admin) => {
     // return true
@@ -23,6 +45,7 @@ export const logout = (history) => {
     const token = localStorage.getItem(TOKEN_KEY)
     const emailToken = localStorage.getItem('login')
  
+
      if(token) {
          const headers = { headers: {'Authorization': `Bearer ${token}`}}  
          let data = qs.stringify({token:token});
@@ -31,18 +54,14 @@ export const logout = (history) => {
              console.log('hasil dari ambil',res.data.data[0].email)
              const role_id = res.data.data[0].role_id;
              const email = res.data.data[0].email;
-            //  if(admin === 'admin')
-            //  {
-            //      console.log('ini admin')
-            //      if (role_id == 1 ) {
-            //          return true;
-            //      }
-            //  }else{
-            //      console.log('ini bukan admin')
- 
-            //          return true;
-                 
-            //  }
+             if(admin === 'admin')
+             {
+                 console.log('ini admin')
+                 if (role_id == 1 ) {
+                     return true;
+                 }
+             }else{
+                 console.log('ini bukan admin')
             return true
  
          }).catch(err => {

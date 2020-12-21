@@ -29,7 +29,7 @@ class NewPassword extends Component {
       newForm: newForm
     },
       () => {
-        console.log(newForm);
+        //console.log(newForm);
       }
     )
   }
@@ -61,7 +61,7 @@ class NewPassword extends Component {
         data = qs.stringify(data);
         axios.patch(`${process.env.REACT_APP_API}/auth/reset_password`,data)
         .then(res => {
-          console.log(res.data)
+          //console.log(res.data)
           if (res.data.success === true) {
              this.setState({
                 form : {
@@ -75,7 +75,7 @@ class NewPassword extends Component {
           console.error(err)
         });
       }else{
-        console.log('password kurang kurang bro nambah lagi')
+        //console.log('password kurang kurang bro nambah lagi')
       }
     }
   }

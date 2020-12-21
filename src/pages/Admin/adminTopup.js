@@ -21,14 +21,14 @@ const onDelete = ( id) =>{
       .then((willDelete) => {
         if (willDelete) {
         // deleteTopup(id);
-            console.log(" delete topup dengan id =" + id);
+            //console.log(" delete topup dengan id =" + id);
             const token = JSON.parse(localStorage.getItem("token"));
             const headers = { headers: {'Authorization': `Bearer ${token.accessToken}`}} 
             axios.delete(`${process.env.REACT_APP_API}/topup/` + id, headers)
             .then(res =>{
-                console.log(res.data.data)
+                //console.log(res.data.data)
               }).catch(err => {
-                console.log(err)
+                //console.log(err)
               });
           swal("Delete Success!", {
             icon: "success",
@@ -55,11 +55,11 @@ class AdminTopup extends Component {
 
         axios.get(`${process.env.REACT_APP_API}/topup/all`,headers)
         .then(res =>{
-          console.log(res.data.data)
+          //console.log(res.data.data)
           this.setState({data:res.data.data});
         
         }).catch(err => {
-          console.log(err)
+          //console.log(err)
         });
 
     }

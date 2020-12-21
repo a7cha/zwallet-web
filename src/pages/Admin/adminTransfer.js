@@ -46,13 +46,13 @@ class AdminTransfer extends Component {
                     tableData : slice,
                     deleteAlert : true
                 })
-              console.log('data transfer axios: ',this.state.dataTransaction)
+              //console.log('data transfer axios: ',this.state.dataTransaction)
             }).catch(err => {
-              console.log('data transfer axios error: ', err.message)
+              //console.log('data transfer axios error: ', err.message)
             });
         })  
         .catch(err => {
-            console.log(err)
+            //console.log(err)
         })
     }
 
@@ -108,9 +108,9 @@ class AdminTransfer extends Component {
                 dataTransaction : res.data.data,
                 tableData : slice
             })
-          console.log('data transfer axios: ',this.state.dataTransaction)
+          //console.log('data transfer axios: ',this.state.dataTransaction)
         }).catch(err => {
-          console.log('data transfer axios error: ', err.message)
+          //console.log('data transfer axios error: ', err.message)
         });
     }
 

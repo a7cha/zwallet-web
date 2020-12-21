@@ -49,13 +49,13 @@ class AdminUser extends Component {
                     tableData : slice,
                     deleteAlert : true
                 })
-              console.log('data transfer axios: ',this.state.dataProfile)
+              //console.log('data transfer axios: ',this.state.dataProfile)
             }).catch(err => {
-              console.log('data transfer axios error: ', err.message)
+              //console.log('data transfer axios error: ', err.message)
             });
         })  
         .catch(err => {
-            console.log(err)
+            //console.log(err)
         })
     }
 
@@ -111,9 +111,9 @@ class AdminUser extends Component {
                 dataProfile : res.data.data,
                 tableData : slice
             })
-          console.log('data user axios: ',this.state.dataProfile)
+          //console.log('data user axios: ',this.state.dataProfile)
         }).catch(err => {
-          console.log('data transfer axios error: ', err.message)
+          //console.log('data transfer axios error: ', err.message)
         });
     }
 

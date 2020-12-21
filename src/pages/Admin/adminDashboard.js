@@ -36,9 +36,9 @@ class AdminDashboard extends Component {
             
             
             this.setState({userData:res.data.data.length});
-            console.log('data user axios: ', this.state.userData)
+            //console.log('data user axios: ', this.state.userData)
         }).catch(err => {
-          console.log('data transfer axios error: ', err.message)
+          //console.log('data transfer axios error: ', err.message)
         });
 
         axios.get(`${process.env.REACT_APP_API}/transaction/all`)
@@ -63,13 +63,13 @@ class AdminDashboard extends Component {
             rupiah 	= reverse.match(/\d{1,3}/g);
             rupiah	= rupiah.join('.').split('').reverse().join('');
 
-            console.log('ini count' , rupiah)
+            //console.log('ini count' , rupiah)
             this.setState({countTrasaction: dataTransfer.length});
 
           this.setState({countTransactionAmount: rupiah});
-          console.log('data admin dashboard axios berhasil: ', this.state.countTrasaction)
+          //console.log('data admin dashboard axios berhasil: ', this.state.countTrasaction)
         }).catch(err => {
-          console.log('data admin dashboard error: ', err.message)
+          //console.log('data admin dashboard error: ', err.message)
         });
 
 

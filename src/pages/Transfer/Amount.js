@@ -28,11 +28,11 @@ class Amount extends Component {
         const headers = { headers: {'Authorization': `${token}`}}  
         axios.get(`${process.env.REACT_APP_API}/user/getuser?id=${id}`,headers)
         .then(res =>{
-          console.log(res.data.data[0])
+          //console.log(res.data.data[0])
           this.setState({dataTransfer:res.data.data[0]}) 
         
         }).catch(err => {
-          console.log(err)
+          //console.log(err)
         });
 
     }
@@ -45,7 +45,7 @@ class Amount extends Component {
             newForm: newForm
         },
         ()=> {
-          console.log(newForm);
+          //console.log(newForm);
         }
         )  
     }
@@ -74,7 +74,7 @@ class Amount extends Component {
                 date:time
             }   
         },() => {
-            // console.log('hasil dari local:',this.state.form);
+            // //console.log('hasil dari local:',this.state.form);
             localStorage.setItem("dataTransfer", JSON.stringify(this.state.form));
             this.props.history.push('/transfer/review')
         })
@@ -85,7 +85,7 @@ class Amount extends Component {
 
     countAvailable(e)
     {
-        // console.log('hasil dari hitung',e.target.value)
+        // //console.log('hasil dari hitung',e.target.value)
         
         this.setState({
             available:this.props.userData.balance - e.target.value
