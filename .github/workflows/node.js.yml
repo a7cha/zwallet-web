@@ -1,0 +1,25 @@
+name: CI CD
+
+on:
+  push:
+    branches: [production]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: cicd
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.KEY }}
+          port: 22
+          script: |
+            cd ~/zwallet-web/
+            git pull origin production
+            ${{secrets.GPGKEY}}
+            yarn
+            pm2 restart zwallet-web
