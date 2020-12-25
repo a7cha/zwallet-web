@@ -22,10 +22,13 @@ This project built with Reactjs.
 
 
 
-### # HOW TO INSTALL
+### # HOW TO RUN
 Download the projects: 
 ```
 ~$ git clone https://github.com/a7cha/zwallet;
+~$ cd zwallet;
+~$ yarn && yarn install;
+~$ yarn start
 ```
 
 ### # LANDING PAGE

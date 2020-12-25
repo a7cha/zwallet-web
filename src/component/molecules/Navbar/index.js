@@ -41,7 +41,7 @@ import NavigationMobile from '../NavigationMobile';
                   
 
 
-    },)
+    },[])
     
   if(hidden){
     return(
