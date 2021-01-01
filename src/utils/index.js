@@ -63,6 +63,7 @@ export const logout = (history) => {
              }else{
                  console.log('ini bukan admin')
             return true
+            }
  
          }).catch(err => {
              console.error(err)
